@@ -10,9 +10,11 @@ import Contact from "./sections/Contact";
 import NotFound from "./sections/404";
 
 function AppRoutes(props) {
+  const { titulo } = props;
+
   return (
     <Switch>
-      <Route exact path='/' render={() => <h1>Lomitos Suavecitos</h1>} />
+      <Route exact path='/' render={() => <h1>{titulo}</h1>} />
       <Route path='/contact' component={Contact} />
       <PrivateRoute path='/home' render={() => <Home />} />
       <Route

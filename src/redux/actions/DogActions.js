@@ -4,3 +4,9 @@ export function actionChangeTitle(title) {
     payload: title
   };
 }
+export function actionAddDog(name){
+  return {
+    type: "ADD_DOG",
+    payload: name
+  }
+}

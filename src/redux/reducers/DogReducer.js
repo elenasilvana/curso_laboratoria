@@ -15,9 +15,15 @@ function DogReducer(prevState = INITIAL_STATE, action) {
         ...prevState,
         title: action.payload
       };
+    case "ADD_DOG":
+      return {
+        ...prevState,
+        dogs: action.payload
+      };
     default:
       return prevState;
   }
 }
+
 
 export default DogReducer;

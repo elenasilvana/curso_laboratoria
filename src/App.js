@@ -1,27 +1,27 @@
 import React from "react";
-
 import { connect } from "react-redux";
 
 import { BrowserRouter } from "react-router-dom";
 
-import { actionChangeTitle } from "./redux/actions/DogActions";
+import { actionChangeTitle, actionAddDog } from "./redux/actions/DogActions";
 
 import AppRoutes from "./AppRoutes";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+
 
   render() {
-    const { cambiarTitulo } = this.props;
+    const { cambiarTitulo, titulo, perritos} = this.props;
+    console.log(this.props);
 
     cambiarTitulo("Gloria");
+    console.log(titulo);
 
     return (
       <BrowserRouter>
-        <AppRoutes />
+        <AppRoutes
+            titulo={titulo}
+         />
       </BrowserRouter>
     );
   }
@@ -29,13 +29,15 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    perritos: state.DogReducer.dogs
+    perritos: state.DogReducer.dogs,
+    titulo: state.DogReducer.title
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    cambiarTitulo: title => dispatch(actionChangeTitle(title))
+    cambiarTitulo: title => dispatch(actionChangeTitle(title)),
+    agregarPerro: name => dispatch(actionAddDog(name))
   };
 }
 
