@@ -11,7 +11,7 @@ class App extends React.Component {
 
 
   render() {
-    const { cambiarTitulo, titulo, perritos} = this.props;
+    const { cambiarTitulo, titulo, perritos, agregarPerro } = this.props;
     console.log(this.props);
 
     cambiarTitulo("Gloria");
@@ -20,7 +20,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <AppRoutes
+            agregarPerro={agregarPerro}
             titulo={titulo}
+            perritos={perritos}
          />
       </BrowserRouter>
     );

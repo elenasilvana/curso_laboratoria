@@ -10,7 +10,8 @@ import Contact from "./sections/Contact";
 import NotFound from "./sections/404";
 
 function AppRoutes(props) {
-  const { titulo } = props;
+  const { titulo, perritos, agregarPerro } = props;
+  //console.log(props);
 
   return (
     <Switch>
@@ -20,7 +21,10 @@ function AppRoutes(props) {
       <Route
         path='/about'
         render={() => {
-          return <About />;
+          return <About 
+          perritos={perritos}
+          agregarPerro={agregarPerro}
+          />;
         }}
       />
       <Route component={NotFound} />
